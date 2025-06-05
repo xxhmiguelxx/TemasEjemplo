@@ -25,12 +25,14 @@ public class FutbolistaServiceImpl implements FutbolistaService {
     }
 
     @Override
-    public Optional<Futbolista> buscarPorId(Long clave) {
+    public Optional<Futbolista> buscarPorId(Integer clave) {
         return futbolistaRepository.findById(clave);
     }
 
+
+
     @Override
-    public Futbolista actualizar(Long clave, Futbolista futbolista) {
+    public Futbolista actualizar(Integer clave, Futbolista futbolista) {
         Optional<Futbolista> futbolistaActual=futbolistaRepository.findById(clave);
 
         if (futbolistaActual.isPresent()){
@@ -52,8 +54,9 @@ public class FutbolistaServiceImpl implements FutbolistaService {
     }
 
     @Override
-    public Futbolista eliminar(Long clave) {
+    public void eliminar(Integer clave) {
 
-       return futbolistaRepository.deleteByClave(clave);
+       futbolistaRepository.deleteById(clave);
+
     }
 }

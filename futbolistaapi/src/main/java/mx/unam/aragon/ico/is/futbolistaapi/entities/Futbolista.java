@@ -1,18 +1,25 @@
 package mx.unam.aragon.ico.is.futbolistaapi.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.NonNull;
 
 @Entity
 @Table (name = "futbolistas")
 public class Futbolista {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int clave;
+    private Integer clave;
 
     @Column(name = "nombre_futbolista", nullable = false, length = 50)
     private String nombre;
+
+
     @Column(name = "nacionalidad_futbolista",
             columnDefinition = "VARCHAR(50) not null")
+    @NotBlank(message = "El campo no debe tener espacios en blanco")
+    @NotNull(message = "No debe de ser null")
     private String nacionalidad;
 
     @Column(name = "url_foto", nullable = true,
@@ -26,7 +33,7 @@ public class Futbolista {
     public Futbolista() {
     }
 
-    public Futbolista(int clave, String nombre, String nacionalidad, String foto, Float altura) {
+    public Futbolista(Integer clave, String nombre, String nacionalidad, String foto, Float altura) {
         this.clave = clave;
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
@@ -34,11 +41,11 @@ public class Futbolista {
         this.altura = altura;
     }
 
-    public int getClave() {
+    public Integer getClave() {
         return clave;
     }
 
-    public void setClave(int clave) {
+    public void setClave(Integer clave) {
         this.clave = clave;
     }
 

@@ -7,7 +7,8 @@ import java.util.Optional;
 public interface FutbolistaService {
     public abstract Futbolista crear(Futbolista futbolista);
     public abstract Iterable<Futbolista> listarTodos();
-    public abstract Optional<Futbolista> buscarPorId(Long clave);
-    public abstract Futbolista actualizar(Long clave, Futbolista futbolista);
-    public abstract Futbolista eliminar(Long clave);
+    public abstract Optional<Futbolista> buscarPorId(Integer clave);
+    public abstract Futbolista actualizar(Integer clave, Futbolista futbolista);
+
+    public abstract void eliminar(Integer clave);
 }

@@ -26,21 +26,21 @@ class FutbolistaapiApplicationTests {
 	@Test
 	void leerFutbolistaPorClave(){
 
-		Long claveTmp=2l;
+		Integer claveTmp=2;
 		Futbolista tmp = futbolistaRepository.findFutbolistaByClave(claveTmp);
 		System.out.println(tmp);
 	}
 
 	@Test
 	public void eliminarFutbolista(){
-		Long claveTmp=3l;
+		Integer claveTmp=3;
 		futbolistaRepository.deleteById(claveTmp);
 	}
 
 	@Test
 	public void actualizarFutbolista(){
 
-		Long claveTmp=5l;
+		Integer claveTmp=5;
 		Futbolista tmp=futbolistaRepository.findFutbolistaByClave(claveTmp);
 		tmp.setNacionalidad("Sin dato");
 		futbolistaRepository.save(tmp);
